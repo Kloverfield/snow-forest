@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snow Forests</title>
+    <style>
+      body {
+        color: #000127;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        margin: 50px auto;
+        -webkit-text-stroke-width: 1px;
+      }
+      section {
+        background: linear-gradient(#abcef7 50%, #3f89cfb9 90%);
+        border: 1px solid #002efa60;
+        border-radius: 30px;
+        display: block;
+        height: auto;
+        margin: 0 auto;
+        width: 640px;
+      }
+      h1 {
+        font-size: 42px;
+        line-height: 60px;
+        margin-bottom: 0;
+        text-align: center;
+        text-decoration: underline;
+      }
+      h2 {
+        font-size: 24px;
+        text-align: center;
+      }
+      a {
+        color: #d9edff;
+        opacity: 0.5;
+        text-decoration-line: none;
+      }
+      a:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+      }
+      hr {
+        margin: 0;
+        opacity: 0.3;
+      }
+      img {
+        border-radius: 150px;
+        display: block;
+        margin: 0 auto;
+        width: 580px;
+      }
+      button {
+        background: linear-gradient(#abcef7, #3f89cfb9);
+        border: 2px solid #54acff75;
+        border-radius: 40px;
+        box-shadow: 2px 2px 2px #000000b0;
+        color: #ddedff;
+        display: block;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 18px;
+        margin: 0px auto;
+        margin-top: 10px;
+        padding: 10px 35px;
+        transition: all 100ms ease-in-out;
+      }
+      button:hover {
+        background: linear-gradient(#3f89cfb9, #abcef7);
+        cursor: pointer;
+      }
+      .info {
+        display: flex;
+        font-size: 20px;
+        line-height: 28px;
+        margin: 0 auto;
+        padding: 15px;
+        width: 600px;
+      }
+      .item {
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        text-align: center;
+        width: 265px;
+      }
+      scan {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1>Snow forests</h1>
+      <h2><em>The best of both worlds</em></h2>
+      <hr />
+      <img
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/070/857/original/4706414.jpg?1678466085"
+        alt=" snow forest"
+      />
+      <hr />
+      <button>Choose Destination</button>
+      <div class="info">
+        <div class="snow item">
+          <h3>Snow</h3>
+          <p>
+            By finding snowy destinations for a quick getaway or even as a venue
+            for your remote work, you can improve your
+            <strong>mental health</strong> by tapping into mindfulness and
+            finding ways to get active in colder climates.
+            <a
+              href="https://www.fastcompany.com/90710659/the-science-behind-why-snowy-weather-is-good-for-your-mental-health"
+              target="_blank"
+              ><br />
+              Read more
+            </a>
+          </p>
+        </div>
+        <div class="forest item">
+          <h3>Forests</h3>
+          <p>
+            Spending time around trees reduces <scan>stress</scan>, lowers blood
+            pressure and improves mood. Numerous studies show that both
+            exercising in forests and simply sitting looking at trees reduce
+            blood pressure as well as the stress-related hormones.
+            <a href="https://www.dec.ny.gov/lands/90720.html" target="_blank"
+              ><br />
+              Read more
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+    <script>
+      let snowForestImage = new Image(640);
+      snowForestImage.src =
+        "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/070/861/original/maxresdefault.jpg?1678467051";
+
+      let snowImage = new Image(640);
+      snowImage.src =
+        "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/070/892/original/360_F_532304704_AHV3elLaleRoIjhOKRCqNSYmTJpEQzTz.jpg?1678475787";
+
+      let treeImage = new Image(640);
+      treeImage.src =
+        "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/070/852/original/p0cbmzgv.jpg?1678465983";
+
+      let desertImage = new Image(640);
+      desertImage.src =
+        "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/070/853/original/9a23e9e99570cbbc4beba88d2c6dad63.jpg?1678465997";
+
+      function updateImage(newImage) {
+        let img = document.querySelector("img");
+        img.replaceWith(newImage);
+      }
+      function updateH1(newH1) {
+        let h1 = document.querySelector("h1");
+        h1.innerHTML = newH1;
+      }
+      function updateH2(newH2) {
+        let h2 = document.querySelector("h2");
+        h2.innerHTML = newH2;
+      }
+      function visit() {
+        let name = prompt(`What is your name?`);
+        let snow = prompt(`Do you like snow ${name}?`)
+          .toLowerCase()
+          .trim()
+          .replace("ys", "yes");
+        let forest = prompt(`Do you like trees?`)
+          .toLowerCase()
+          .trim()
+          .replace("ys", "yes");
+
+        if (snow === "yes" && forest === "yes") {
+          alert(`Just for you ${name}!`);
+          updateImage(snowForestImage);
+          updateH1("Winter Wonderland");
+        } else {
+          if (snow === "yes" && forest === "no") {
+            alert(`Just for you ${name}!`);
+            updateImage(snowImage);
+            updateH1("Frozen Wasteland");
+            updateH2("The best of one world");
+          } else {
+            if (snow === "no" && forest === "yes") {
+              alert(`Just for you ${name}!`);
+              updateImage(treeImage);
+              updateH1("Forestry");
+              updateH2("The best of one world");
+            } else {
+              alert(`Fair enough`);
+              updateImage(desertImage);
+              updateH1("Hot Wasteland");
+              updateH2(
+                "The best of no world... honestly, I question your judgement..."
+              );
+            }
+          }
+        }
+      }
+      let visitButton = document.querySelector("button");
+      visitButton.addEventListener("click", visit);
+    </script>
+  </body>
+</html>
